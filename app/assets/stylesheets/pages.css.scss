@@ -1,0 +1,89 @@
+@import "compass";
+// constants
+
+$PI: 3.141;
+
+// variables
+
+$n: 5;
+$r1: 120px;
+$r2: 50px;
+
+// derivations
+
+$a: (2 * $r1) + (2 * $r2);
+
+// code
+
+*, *:before, *:after {
+  @include box-sizing(border-box);
+}
+
+html {
+  background-color: rgba(black, .8);
+  height: 100%;
+}
+
+body {
+  @include background-size(contain);
+  background-image: url("http://dl.dropbox.com/u/22893249/8.jpg");
+  background-repeat: no-repeat;
+  width: 1000px;
+  min-height: 100%;
+}
+
+body {
+  padding: 20px;
+}
+
+a {
+  color: rgba(white, .75);
+}
+
+.nav {
+  position: absolute;
+  left: 20px;
+  top: 100px;
+  width: $a;
+  height: $a;
+  
+  a {
+    @include transition(border-color .2s, background-color .2s);
+    display: inline-block;
+    width: $r2 * 2;
+    height: $r2 * 2;
+    border-radius: 50%;
+    border: 2px solid rgba(white, .75);
+    background-color: transparent;
+    font-size: 14px;
+    line-height: 100px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    
+    &:hover,
+    &:focus {
+      color: #6b894b;
+      font-weight: bold;
+      background-color: white;
+    }
+    
+    position: absolute;
+    
+    @for $i from 1 through $n {
+      $fi: $PI/2 + (2 * $PI) * (($i - 1) / $n);
+      
+      $x: $r1 * cos($fi);
+      $y: $r1 * sin($fi);
+      
+      $left: ($a / 2) + ($x - $r2);
+      $top: ($a / 2) - ($y + $r2);
+      
+      &:nth-child(#{$i}) {
+        left: $left;
+        top: $top;
+      }
+    }
+  }
+}
