@@ -1,12 +1,11 @@
 @import "compass";
 // constants
-
 $PI: 3.141;
 
 // variables
 
-$n: 5;
-$r1: 120px;
+$n: 7;
+$r1: 200px;
 $r2: 50px;
 
 // derivations
@@ -20,14 +19,13 @@ $a: (2 * $r1) + (2 * $r2);
 }
 
 html {
-  background-color: rgba(black, .8);
+  background-color: #d64e00;
   height: 100%;
 }
 
 body {
   @include background-size(contain);
-  background-image: url("http://dl.dropbox.com/u/22893249/8.jpg");
-  background-repeat: no-repeat;
+  
   width: 1000px;
   min-height: 100%;
 }
@@ -38,6 +36,16 @@ body {
 
 a {
   color: rgba(white, .75);
+}
+
+
+
+
+.theme0 {
+
+}
+.theme1 {
+  margin-top: $a;
 }
 
 .nav {
@@ -56,11 +64,12 @@ a {
     border: 2px solid rgba(white, .75);
     background-color: transparent;
     font-size: 14px;
-    line-height: 100px;
+    line-height: 15px;
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 2px;
+    padding-top: 35px;
     
     &:hover,
     &:focus {

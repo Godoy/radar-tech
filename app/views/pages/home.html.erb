@@ -1,7 +1,18 @@
-<div class="nav">
-  <a href="#">Item 1</a>
-  <a href="#">Item 2</a>
-  <a href="#">Item 3</a>
-  <a href="#">Item 4</a>
-  <a href="#">Item 5</a>
+
+
+<% 
+@temas.each_with_index do |tema, index| %>
+
+
+<div class="nav theme<%=index%>">
+	<h1><%= tema.title %></h1>
+  <% tema.items.each do |item| %>
+  	<a href="#"><%= item.name %></a>
+  <% end %>
 </div>
+
+<% 
+end 
+%>
+
+

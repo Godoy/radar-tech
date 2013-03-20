@@ -1,3 +1,6 @@
 class Theme < ActiveRecord::Base
-  attr_accessible :title
+
+  has_many :items
+
+  attr_accessible :title, :items
 end

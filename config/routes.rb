@@ -6,6 +6,7 @@ Radar::Application.routes.draw do
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   get "pages/home"
+  get "exemplos" => "pages#exemplos"
   
   get "items" => "items#index"
 
